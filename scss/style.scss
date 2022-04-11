@@ -18,18 +18,30 @@ body {
    align-items: center;
    background: map-get($f-theme, main-bg);
    color: map-get($f-theme, text-light);
+
+   @media (min-width: $breakpoint) {
+      justify-content: center;
+   }
 }
 
 .calc {
    width: 100%;
    max-width: 500px;
    padding: 20px;
+
+   @media (min-width: $breakpoint) {
+      max-width: 550px;
+   }
 }
 
 .calc_header {
    display: flex;
    justify-content: space-between;
    align-items: center;
+
+   @media (min-width: $breakpoint) {
+      padding: 10px 0;
+   }
 }
 
 .calc_window {
@@ -37,8 +49,13 @@ body {
    padding: 20px;
    margin: 20px 0;
    border-radius: 10px;
-   font-size: 30px;
+   font-size: 36px;
    text-align: right;
+
+   @media (min-width: $breakpoint) {
+      padding: 30px;
+      font-size: 40px;
+   }
 }
 
 .calc_buttons {
@@ -48,6 +65,11 @@ body {
    padding: 20px;
    border-radius: 10px;
    background: map-get($f-theme, toggle-bg);
+
+   @media (min-width: $breakpoint) {
+      padding: 30px;
+      gap: 25px;
+   }
 }
 
 .calc_btn {
