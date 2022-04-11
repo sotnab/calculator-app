@@ -1,0 +1,241 @@
+@import 'variables';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html,
+body {
+   font-family: $font-family;
+}
+
+.container {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: map-get($f-theme, main-bg);
+   color: map-get($f-theme, text-light);
+}
+
+.calc {
+   width: 100%;
+   max-width: 500px;
+   padding: 20px;
+}
+
+.calc_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.calc_window {
+   background: map-get($f-theme, screen-bg);
+   padding: 20px;
+   margin: 20px 0;
+   border-radius: 10px;
+   font-size: 30px;
+   text-align: right;
+}
+
+.calc_buttons {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 15px;
+   padding: 20px;
+   border-radius: 10px;
+   background: map-get($f-theme, toggle-bg);
+}
+
+.calc_btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 55px;
+   padding: 10px;
+   background: map-get($f-theme, key-orange-bg);
+   box-shadow: 0 4px 0 0 map-get($f-theme, key-orange-shadow);
+   color: map-get($f-theme, text-dark);
+   font-size: 30px;
+   border-radius: 5px;
+   cursor: pointer;
+
+   &:hover {
+      background: darken(map-get($f-theme, key-orange-bg), 10%);
+   }
+
+   &--wide {
+      grid-column-end: span 2;
+   }
+
+   &--red,
+   &--gray {
+      font-size: 18px;
+      text-transform: uppercase;
+      color: map-get($f-theme, text-light);
+   }
+
+   &--gray {
+      background: map-get($f-theme, key-bg);
+      box-shadow: 0 4px 0 0 map-get($f-theme, key-shadow);
+      &:hover {
+         background: darken(map-get($f-theme, key-bg), 10%);
+      }
+   }
+
+   &--red {
+      background: map-get($f-theme, key-red-bg);
+      box-shadow: 0 4px 0 0 map-get($f-theme, key-red-shadow);
+      &:hover {
+         background: darken(map-get($f-theme, key-red-bg), 10%);
+      }
+   }
+}
+
+.calc_toggle {
+   display: grid;
+   grid-template: 1fr 1fr / 1fr 1fr;
+   column-gap: 10px;
+   grid-template-areas:
+      'null labels'
+      'subtitle toggle';
+}
+
+.calc_subtitle {
+   grid-area: subtitle;
+   text-transform: uppercase;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.calc_switch {
+   position: relative;
+   grid-area: toggle;
+   display: grid;
+   grid-auto-flow: column;
+   width: 60px;
+   height: 20px;
+   border-radius: 10px;
+   background: map-get($f-theme, toggle-bg);
+}
+
+.calc_labels {
+   grid-area: labels;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 6px;
+}
+
+.calc_switch-btn {
+   position: absolute;
+   background: map-get($f-theme, key-red-bg);
+   top: 50%;
+   left: 4px;
+   height: 14px;
+   width: 14px;
+   transform: translate(0%, -50%);
+   transition: 0.2s;
+   border-radius: 50%;
+
+   &--second {
+      transform: translate(18px, -50%);
+   }
+
+   &--third {
+      transform: translate(39px, -50%);
+   }
+}
+
+.container--second {
+   background: map-get($s-theme, main-bg);
+   color: map-get($s-theme, text-dark);
+
+   .calc_window {
+      background: map-get($s-theme, screen-bg);
+   }
+
+   .calc_buttons {
+      background: map-get($s-theme, toggle-bg);
+   }
+
+   .calc_btn {
+      background: map-get($s-theme, key-orange-bg);
+      box-shadow: 0 4px 0 0 map-get($s-theme, key-orange-shadow);
+      color: map-get($s-theme, text-dark);
+      &:hover {
+         background: darken(map-get($s-theme, key-orange-bg), 10%);
+      }
+      &--red,
+      &--gray {
+         color: map-get($s-theme, text-light);
+      }
+      &--gray {
+         background: map-get($s-theme, key-bg);
+         box-shadow: 0 4px 0 0 map-get($s-theme, key-shadow);
+         &:hover {
+            background: darken(map-get($s-theme, key-bg), 10%);
+         }
+      }
+      &--red {
+         background: map-get($s-theme, key-red-bg);
+         box-shadow: 0 4px 0 0 map-get($s-theme, key-red-shadow);
+         &:hover {
+            background: darken(map-get($s-theme, key-red-bg), 10%);
+         }
+      }
+   }
+   .calc_switch {
+      background: map-get($s-theme, toggle-bg);
+   }
+}
+
+.container--third {
+   background: map-get($t-theme, main-bg);
+   color: map-get($t-theme, text-yellow);
+
+   .calc_window {
+      background: map-get($t-theme, screen-bg);
+   }
+
+   .calc_buttons {
+      background: map-get($t-theme, toggle-bg);
+   }
+
+   .calc_btn {
+      background: map-get($t-theme, key-orange-bg);
+      box-shadow: 0 4px 0 0 map-get($t-theme, key-orange-shadow);
+      color: map-get($t-theme, text-yellow);
+      &:hover {
+         background: darken(map-get($t-theme, key-orange-bg), 10%);
+      }
+      &--red,
+      &--gray {
+         color: map-get($t-theme, text-light);
+      }
+      &--gray {
+         background: map-get($t-theme, key-bg);
+         box-shadow: 0 4px 0 0 map-get($t-theme, key-shadow);
+         &:hover {
+            background: darken(map-get($t-theme, key-bg), 10%);
+         }
+      }
+      &--red {
+         background: map-get($t-theme, key-red-bg);
+         box-shadow: 0 4px 0 0 map-get($t-theme, key-red-shadow);
+         &:hover {
+            background: darken(map-get($t-theme, key-red-bg), 10%);
+         }
+      }
+   }
+   .calc_switch {
+      background: map-get($t-theme, toggle-bg);
+   }
+   .calc_slider-btn {
+      background: map-get($t-theme, key-red-bg);
+   }
+}
